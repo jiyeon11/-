@@ -93,7 +93,6 @@ public class Song_Recommendation{
 	static void join_membership() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
-		db.connect();
 		
 		String id;            //id
 		String nickname;      //닉네임
@@ -140,7 +139,6 @@ public class Song_Recommendation{
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
 		User_Information user = new User_Information();
-		db.connect();
 		
 		String rogin_sql;    //확인용 sql문
 		
@@ -318,7 +316,6 @@ public class Song_Recommendation{
 	static String Song_play(String table_name, String situation) throws SQLException {  //다음 노래 재생 메서드
 		MP3Player mp3 = new MP3Player();
 		DB db = new DB();
-		db.connect();
 		
 		String path = null;  //경로
 		String sql = "SELECT * FROM " + table_name +" where situation = '"+ situation + "'order by rand() limit 1";  //랜덤으로 하나 보이게하는 sql문
@@ -416,7 +413,6 @@ public class Song_Recommendation{
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
 		MP3Player mp3 = new MP3Player();
-		db.connect();
 		
 		String ohnochoo_title = null;  //오노추 노래 제목
 		String ohnochoo_singer = null;  //오노추 가수
@@ -472,7 +468,6 @@ public class Song_Recommendation{
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
 		User_Information user = new User_Information();
-		db.connect();
 		
 		String nickname = null; //닉네임
 		String request;         //추천 글
