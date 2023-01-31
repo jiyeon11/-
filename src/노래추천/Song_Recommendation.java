@@ -93,7 +93,7 @@ public class Song_Recommendation{
 	static void join_membership() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
-		
+		db.connect();
 		String id;            //id
 		String nickname;      //닉네임
 		String password;      //비밀번호
@@ -138,6 +138,7 @@ public class Song_Recommendation{
 	static void rogin() throws SQLException {  //로그인
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
+		db.connect();
 		User_Information user = new User_Information();
 		
 		String rogin_sql;    //확인용 sql문
@@ -267,6 +268,7 @@ public class Song_Recommendation{
 	
 	static void Selection_songs(String genre, String situ) throws SQLException {   //추천 노래 등장 메서드
 		DB db = new DB();
+		db.connect();
 		Scanner scan = new Scanner(System.in);
 		MP3Player mp3 = new MP3Player();//player jar 안에 있는 mp3를 실행시켜주는 객체
 
@@ -316,7 +318,7 @@ public class Song_Recommendation{
 	static String Song_play(String table_name, String situation) throws SQLException {  //다음 노래 재생 메서드
 		MP3Player mp3 = new MP3Player();
 		DB db = new DB();
-		
+		db.connect();
 		String path = null;  //경로
 		String sql = "SELECT * FROM " + table_name +" where situation = '"+ situation + "'order by rand() limit 1";  //랜덤으로 하나 보이게하는 sql문
 		ResultSet select_one = DB.stmt.executeQuery(sql);
@@ -412,6 +414,7 @@ public class Song_Recommendation{
 	static void ohnochoo() throws SQLException {
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
+		db.connect();
 		MP3Player mp3 = new MP3Player();
 		
 		String ohnochoo_title = null;  //오노추 노래 제목
@@ -467,6 +470,7 @@ public class Song_Recommendation{
 	static void message_board() {  //게시판
 		Scanner scan = new Scanner(System.in);
 		DB db = new DB();
+		db.connect();
 		User_Information user = new User_Information();
 		
 		String nickname = null; //닉네임
