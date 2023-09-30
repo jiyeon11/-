@@ -45,7 +45,6 @@ public class Manager extends JFrame{
 	JComboBox<String> singer_combo; //가수 콤보
 	Font title_font = new Font("상주곶감체",Font.BOLD,55);
 	JButton choice = new JButton("선택");
-	
 	Font part_title_font = new Font("상주곶감체",Font.BOLD,25);  //부제목?폰트
 	
 	public static void main(String[] args) throws SQLException {
@@ -58,7 +57,7 @@ public class Manager extends JFrame{
 		rogin_button.addActionListener(button_Listener);  //로그인 버튼 액션 리스너
 		setTitle("지연이의 노래 추천 관리자창");
 		setBounds(500, 150, 600, 800);
-//		setResizable(false);
+		setResizable(false);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		
@@ -133,6 +132,9 @@ public class Manager extends JFrame{
 				
 				switch(todoCombo.getSelectedItem().toString()) {
 				case "노래 추가" :
+					delete_panel.removeAll();
+					showList_panel.removeAll();
+					today_song_panel.removeAll();
 					delete_panel.setVisible(false);
 					showList_panel.setVisible(false);
 					today_song_panel.setVisible(false);
@@ -145,6 +147,9 @@ public class Manager extends JFrame{
 					break;
 					
 				case "노래 삭제" :
+					showList_panel.removeAll();
+					today_song_panel.removeAll();
+					insertion_panel.removeAll();
 					insertion_panel.setVisible(false);
 					showList_panel.setVisible(false);
 					today_song_panel.setVisible(false);
@@ -157,6 +162,9 @@ public class Manager extends JFrame{
 					break;
 					
 				case "노래 목록 보기" : 
+					delete_panel.removeAll();
+					today_song_panel.removeAll();
+					insertion_panel.removeAll();
 					insertion_panel.setVisible(false);
 					delete_panel.setVisible(false);
 					today_song_panel.setVisible(false);
@@ -165,6 +173,9 @@ public class Manager extends JFrame{
 					break;
 					
 				case "오노추 등록" : 
+					delete_panel.removeAll();
+					showList_panel.removeAll();
+					insertion_panel.removeAll();
 					insertion_panel.setVisible(false);
 					delete_panel.setVisible(false);
 					showList_panel.setVisible(false);
@@ -173,6 +184,10 @@ public class Manager extends JFrame{
 					break;
 					
 				case "게시판 조회" :
+					delete_panel.removeAll();
+					showList_panel.removeAll();
+					today_song_panel.removeAll();
+					insertion_panel.removeAll();
 					insertion_panel.setVisible(false);
 					delete_panel.setVisible(false);
 					showList_panel.setVisible(false);
@@ -282,6 +297,7 @@ public class Manager extends JFrame{
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					JButton check = (JButton)e.getSource();
+					
 					if(check.getText().equals("노래 추가")) {
 						//가수 갖고오기~
 						if(singer_combo.getSelectedItem().toString().equals("-")) {
@@ -289,6 +305,7 @@ public class Manager extends JFrame{
 						}else {
 							singer = singer_combo.getSelectedItem().toString();
 						}
+						System.out.println(singer);
 						//장르 갖고오기~
 						switch(genre_combo.getSelectedItem().toString()) {
 						case "여자아이돌" : genre = "girl_group"; break;
@@ -326,7 +343,7 @@ public class Manager extends JFrame{
 			insertion_panel.add(insertion_button);
 			insertion_panel.add(singer_combo);
 			insertion_panel.add(singer_tf);
-			insertion_panel.setBackground(new Color(217,229,255));
+//			insertion_panel.setBackground(new Color(217,229,255));
 			add(insertion_panel,"Center");  //할 일 부분
 			insertion_panel.setVisible(false);
 		}//insertion()
@@ -423,7 +440,7 @@ public class Manager extends JFrame{
 			delete_panel.add(genre_label);
 			delete_panel.add(genre_combo);
 			delete_panel.add(choice_button);
-			delete_panel.setBackground(new Color(217,229,255));
+//			delete_panel.setBackground(new Color(217,229,255));
 			add(delete_panel,"Center");
 			delete_panel.setVisible(false);
 		}//delete()

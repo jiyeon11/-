@@ -11,7 +11,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/P1212/mysql-connector-java-8.0.30.jar"/>
-	<classpathentry kind="lib" path="E:/P1212/player.jar"/>
+	<classpathentry kind="lib" path="C:/노추프/mysql-connector-java-8.0.30.jar"/>
+	<classpathentry kind="lib" path="C:/노추프/player.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
